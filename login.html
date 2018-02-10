@@ -15,56 +15,26 @@
     <title>Door Locker - Admin panel</title>
 </head>
 <body>
-    <header class="top_header">
-        <div class="header_topline">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="row">
-                        <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
-                        <div class="top_links" >
-                        <a href="index.html">Homepage</a>
-                        <a href="workers.html">Workers</a>
-                        <a href="#">Attendance</a>
-                        <a href="login.html">Log in</a>
-                        <a href="#">Sign up</a>
-                        </div>
-                        <div class="soc_buttons">
-                            <a href=""><i class="fab fa-trello" ></i></a>
-                            <a href=""><i class="fab fa-slack"></i></a>
-                            <a href=""><i class="fab fa-github"></i></a>
-                            
-                        </div>
-                    </div>
+   <div class="container">
+     <div class="row">
+        <div class="col-md-4 col-sm-5 col-xs-5"></div>
+            <div class="col-md-4 col-sm-2 col-xs-2 login">
+                     <img src="img/logo.gif" width="50px" height="50px" alt="">
+                     <div class="main">
+                    <p class="log" >LOG IN</p>
+                    <p class="user">Username</p>
+                     <input class="usern" id="user" type="text">
+                    <p class="pass">Password</p>
+                     <input id="password" type="password">
+                    <div class="footer">
+                    <div id="err"><b></b></div>
+
+                    <button class="btn" id="logbtn"><b>LOG IN</b></button>
+                    </div>       
                 </div>
-            </div>
-        </div>
-    </header>
-    <div class="content">
-    <div class="container">
-            <div class="col-md-12">
-               <div class="row">
-                <div class="main">
-                 <div class="container">
-                    <div class="col-md-4 login">
-        <img src="img/hiregl_logo.png" alt="">
-        <div class="main1">
-        <p class="log" >LOG IN</p>
-        <p class="user">Username</p>
-        <input class="usern" id="user" type="text">
-        <p class="pass">Password</p>
-        <input id="password" type="password">
-           <div class="footer">
-            <div class="error" id="err"><b></b></div>
-        
-            <button class="btn" id="logbtn"><b>LOG IN</b></button>
-            </div>
-        </div>
-    </div>
-                  </div>              
-                </div>
-              </div>
-            </div>
-        </div>
+            </div> 
+        <div class="col-md-4 col-sm-5 col-xs-5"></div>                
+      </div>
     </div>
 </body>
 </html>

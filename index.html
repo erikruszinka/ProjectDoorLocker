@@ -15,18 +15,20 @@
     <title>Door Locker - Admin panel</title>
 </head>
 <body>
-    <header class="top_header">
+    <header class="navbar navbar-inverse navbar-fixed-top">
         <div class="header_topline">
             <div class="container">
                 <div class="col-md-12">
                     <div class="row">
+                       <div class="logo"><img src="img/logo.gif" width="40px" height="40px" alt=""></div>
                         <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
                         <div class="top_links" >
-                        <a href="index.html">Homepage</a>
-                        <a href="workers.html">Workers</a>
-                        <a href="#">Attendance</a>
                         <a href="login.html">Log in</a>
                         <a href="#">Sign up</a>
+                        <a href="login.html" class="hidden-md hidden-lg hidden-sm">Homepage</a>
+                        <a href="#" class="hidden-md hidden-lg hidden-sm">Workers</a>
+                        <a href="#" class="hidden-md hidden-lg hidden-sm">Attendance</a>                       
+                                                
                         </div>
                         <div class="soc_buttons">
                             <a href=""><i class="fab fa-trello" ></i></a>
@@ -39,18 +41,67 @@
             </div>
         </div>
     </header>
-    <div class="content">
-    <div class="container">
-            <div class="col-md-12">
-               <div class="row">
-                <div class="main">
-                 <div class="container">
 
-                  </div>              
-                </div>
-              </div>
+          <div class="container-fluid">
+          <div class="row">
+           <div class="col-md-2 col-sm-3 hidden-xs col-lg-2 sidebar">
+           <div class="row">
+               <ul class="nav nav-sidebar">
+                   <li><a href="index.html">Homepage</a></li>
+                   <li><a href="workers.html">Workers</a></li>
+                   <li><a href="#">Attendance</a></li>
+               </ul>
+                    
             </div>
+              </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 con">
+                <div class="col-xs-6 col-sm-3 col-md-10 placeholder">
+                   <div class="row placeholders">
+                   <img  src="img/home-pic.png" width="100%" height="100%" class="img-responsive" alt="Generic placeholder thumbnail">
+                   </div>
+                </div>
+                      <div class="workersearch">
+     <input class="form-control" id="myInput" type="text" placeholder="Search..">
+     <br>
+     <table class="table table-bordered table-striped">
+     <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+     </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>Erik</td>
+        <td>Ruszinka</td>
+        <td>erik.ruszinka@akademiasovy.sk</td>
+      </tr>
+      <tr>
+        <td>Boris</td>
+        <td>Galicky</td>
+        <td>boris.galicky@akademiasovy.sk</td>
+      </tr>
+      <tr>
+        <td>Ondrej</td>
+        <td>Tomco</td>
+        <td>ondrej.tomco@akademiasovy.sk</td>
+      </tr>
+      <tr>
+        <td>Jakub</td>
+        <td>Seliga</td>
+        <td>jakub.seliga@akademiasovy.sk</td>
+      </tr>
+      <tr>
+        <td>Michal</td>
+        <td>Novotny</td>
+        <td>michal.novotny@akademiasovy.sk</td>
+      </tr>
+    </tbody>
+  </table>
+                    </div>
         </div>
+      </div>
     </div>
 </body>
 </html>
