@@ -35,7 +35,7 @@ $(document).ready(function(){
         }
         if(error==false){
              $.ajax({
-        url:'http://akademiasovy.ddns.net:8081/api/auth/login',
+        url:'http://localhost:8081/api/auth/login',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify ({
@@ -43,7 +43,7 @@ $(document).ready(function(){
         "password": userPasswordValue,
     }),
         success: function(data){
-            window.location.href='interview.html';
+            window.location.href='index.html';
         },
             error: function(){
                 
