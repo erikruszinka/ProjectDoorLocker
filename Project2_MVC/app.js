@@ -14,6 +14,8 @@ const LocalStrategy = require('passport-local').strategy;
 
 //routes
 const index = require('./routes/index');
+const admin = require('./routes/admin');
+const employee = require('./routes/employee');
 
 
 //Application init
@@ -29,9 +31,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 //Ex session
 app.use(session({
-    secret:'secret',
-    saveUninitialized:true,
-    resave:true
+    secret:'secret_phrase',
+    saveUninitialized:false,
+    resave:false
 }));
 
 // Init passport
@@ -67,11 +69,11 @@ app.use(expressValidator({
 }));
 
 app.use('/', index);
+app.use('/registerAdmin', admin);
+app.use('/registerEmployee', employee);
 
 
-app.get('/', (req,res)=>{
-    res.send('It works!');
-});
+
 //Start Server
 app.set('port',(process.env.PORT || 3000));
 

@@ -3,11 +3,11 @@ const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-let User = require('../models/user');
+let User = require('../models/admin');
 
 // Home Page - Dashboard
-router.get('/', ensureAuthenticated, (req, res, next) => {
-  res.render('index');
+router.get('/', (req, res, next) => {
+  res.render('index', {title: 'Form Validation', success: false, errors:req.session.errors});
 });
 
 // Login Form
@@ -15,53 +15,11 @@ router.get('/login', (req, res, next) => {
   res.render('login');
 });
 
-// Register Form
-router.get('/register', (req, res, next) => {
-  res.render('register');
-});
-
 // Logout
 router.get('/logout', (req, res, next) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
   res.redirect('/login');
-});
-
-// Process Register
-router.post('/register', (req, res, next) => {
-  const name = req.body.name;
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
-  const password2 = req.body.password2;
-
-  req.checkBody('name', 'Name field is required').notEmpty();
-	req.checkBody('email', 'Email field is required').notEmpty();
-	req.checkBody('email', 'Email must be a valid email address').isEmail();
-	req.checkBody('username', 'Username field is required').notEmpty();
-	req.checkBody('password', 'Password field is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-
-  let errors = req.validationErrors();
-
-  if(errors){
-    res.render('register', {
-      errors: errors
-    });
-  } else {
-    const newUser = new User({
-      name: name,
-      username: username,
-      email: email,
-      password: password
-    });
-
-    User.registerUser(newUser, (err, user) => {
-      if(err) throw err;
-      req.flash('success_msg', 'You are registered and can log in');
-      res.redirect('/login');
-    });
-  }
 });
 
 // Local Strategy
@@ -92,7 +50,7 @@ passport.deserializeUser((id, done) => {
     done(err, user);
   });
 });
-
+ 
 // Login Processing
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
@@ -101,7 +59,7 @@ router.post('/login', (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 });
-
+  
 // Access Control
 function ensureAuthenticated(req, res, next){
   if(req.isAuthenticated()){
