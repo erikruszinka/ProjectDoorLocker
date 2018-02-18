@@ -1,10 +1,10 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
-
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://Admin1:akademiasovy@ds229388.mlab.com:29388/recog');
 
 //Employee schema
-const EmployeeSchema=mongoose.Schema({
+const EmployeeSchema=new Schema({
     First_Name: {
         type: String
     },
@@ -15,7 +15,7 @@ const EmployeeSchema=mongoose.Schema({
         type:String
     },
     Date_of_birth:{
-        type:Date
+        type:String
     },
     City:{
         type:String
@@ -29,12 +29,13 @@ const EmployeeSchema=mongoose.Schema({
     email:{
         type:String
     },
-    number:{
-        type:Number
-    },
-    profilephoto:{
+    phonenumber:{
         type:String
-    }    
+    }
+/*    profilephoto:{
+        type:String        
+    } 
+*/       
 });
 
 const Employee= module.exports= mongoose.model('Employee', EmployeeSchema);

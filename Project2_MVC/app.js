@@ -11,6 +11,10 @@ const session = require('express-session');
 const passport = require('passport'); 
 const LocalStrategy = require('passport-local').strategy; 
 
+/*
+const multer=require('multer');
+const upload = multer({storage: './public/uploads'});
+*/
 
 //routes
 const index = require('./routes/index');
@@ -24,6 +28,8 @@ const app=express();
 //view engine
 app.engine('handlebars',exphbs({defaultLayout: 'main'}));
 app.set('view engine','handlebars');
+
+//app.use(upload.single('profilephoto'))
 
 //body parser middleware
 app.use(bodyParser.json());

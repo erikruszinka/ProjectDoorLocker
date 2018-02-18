@@ -48,10 +48,10 @@ router.post('/', (req, res, next) => {
         password: password
     });
   
-    Admin.createUser(newUser, (err, user) => {
+    Admin.registerUser(newUser, (err, user) => {
         if(err) throw err;
         req.flash('success_msg', 'You are registered and can log in');
-        res.redirect('/login');
+        res.redirect('/');
       });
     }
   });
