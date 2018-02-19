@@ -4,6 +4,7 @@ const mongoose= require('mongoose');
 const path = require('path'); 
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); 
+const methodOverride = require('method-override');
 const exphbs = require('express-handlebars'); 
 const expressValidator = require('express-validator'); 
 const flash = require('connect-flash'); 
@@ -21,7 +22,8 @@ const upload = multer({storage: './public/uploads'});
 const index = require('./routes/index');
 const admin = require('./routes/admin');
 const employee = require('./routes/employee');
-
+const show = require('./routes/show');
+const edit = require('./routes/edit');
 
 //Application init
 const app=express();
@@ -37,6 +39,9 @@ app.use('/public', express.static('public'))
 //body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
+
+//override
+app.use(methodOverride('_method'));
 
 //Ex session
 app.use(session({
@@ -80,8 +85,8 @@ app.use(expressValidator({
 app.use('/', index);
 app.use('/registerAdmin', admin);
 app.use('/registerEmployee', employee);
-
-
+app.use('/show', show);
+app.use('/edit', edit);
 
 //Start Server
 app.set('port',(process.env.PORT || 3000));

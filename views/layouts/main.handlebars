@@ -24,11 +24,11 @@
                     <div class="row">
                        <div class="logo"><img src="/public/img/logo.gif" width="40px" height="40px" alt=""></div>
                         <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
-                       
                         <div class="top_links">
                         
             {{#if user}}
-              <a href="/" class="hidden-md hidden-lg hidden-sm">Home</a>              
+              <a href="/" class="hidden-md hidden-lg hidden-sm">Home</a>     
+              <a href="/show" class="hidden-md hidden-lg hidden-sm">Show Employees</a>          
               <a href="/registerEmployee" class="hidden-md hidden-lg hidden-sm">Register Employee</a>
               <a href="/registerAdmin" class="hidden-md hidden-lg hidden-sm">Register Admin</a>
               <a href="/logout" class="hidden-md hidden-lg hidden-sm">Logout</a>
@@ -56,7 +56,8 @@
                
             <ul class="nav nav-sidebar">
             {{#if user}}
-              <li><a href="/">Home</a></li>              
+              <li><a href="/">Home</a></li>  
+              <li><a href="/show">Show Employees</a></li>            
               <li><a href="/registerEmployee">Register Employee</a></li>
               <li><a href="/registerAdmin">Register Admin</a></li>
               <li><a href="/logout">Logout</a></li>
@@ -66,7 +67,6 @@
           </ul>
                     
             </div>
-              </div>
               </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 con">
               <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 placeholder">
@@ -90,7 +90,6 @@
                 
                 
                 </div>
-            </div>
             </div>
 <!--
     <nav class="navbar navbar-inverse navbar-fixed-top">

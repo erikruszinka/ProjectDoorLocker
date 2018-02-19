@@ -1,0 +1,34 @@
+<input class="form-control" id="myInput" type="text" placeholder="Search..">
+<table>
+    {{#if employees}}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        {{#each employees}}
+        <tr>
+            
+            <td>{{First_Name}}</td>
+            <td>{{Last_Name}}</td>
+            <td>
+                <a class="btn left-align" href="/show/{{id}}"><i class="fas fa-info-circle"></i>Info</a>
+                <a class="btn left-align" href="/edit/{{id}}"><i class="fas fa-pencil-alt"></i>Edit</a>
+
+                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form">
+                <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red"><i class="fas fa-eraser"></i>Delete</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+    {{else}}
+<p>NO employees found</p>
+    {{/if}}
+</table>

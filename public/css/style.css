@@ -25,7 +25,9 @@ i{
     color: rgb(82, 82, 82);
     font-size: 30px;
 }
-
+#delete-form{
+    display: inline;
+}
 .soc_buttons{
     float: right;
     padding-top: 10px;

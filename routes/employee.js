@@ -85,8 +85,44 @@ if (errors){
         res.redirect('/');
         console.log(newUser);
       });
-}
-
+    }
 });
+
+//Edit
+router.put('/:id',(req,res)=>{
+    Employee.findOne({
+        _id: req.params.id
+        })
+    .then(employee=>{
+        
+        //edit
+        employee.First_Name=req.body.fname;
+        employee.Last_Name=req.body.lname;
+        employee.Gender=req.body.gender;
+        employee.Date_of_birth=req.body.birth;
+        employee.City=req.body.city;
+        employee.Address=req.body.address;
+        employee.Code=req.body.zipcode;
+        employee.email=req.body.email;
+        employee.phonenumber=req.body.phoneNumber;
+
+        employee.save()
+        .then(employee=>{
+            req.flash('success_msg', 'Employee upgraded');
+            res.redirect('/');
+            console.log(employee);
+            
+        });
+        });
+    });
+
+//Delete
+router.delete('/:id',(req,res)=>{
+    Employee.remove({_id:req.params.id})
+    .then(() =>{
+        res.redirect('/');
+    });
+});
+
 
 module.exports=router;
