@@ -1,0 +1,171 @@
+html,body{
+    height: 100%;
+    padding-top: 50px;
+}
+
+
+
+a{
+    font-family: Comfortaa;
+    font-size: 20px;
+    color: black;
+    padding-right: 10px;
+    
+}
+
+a:active{
+    color: red;
+}
+
+i{
+    color: rgb(82, 82, 82);
+    font-size: 30px;
+}
+#delete-form{
+    display: inline;
+}
+
+.placeholders{
+    padding-left: 20px;
+}
+
+.mainphoto{
+    align-content: center;
+}
+
+.logo{
+    padding-top: 5px;
+    float: left;
+}
+
+.header_topline{
+    background-color: darkgray;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.top_links{
+    float: left;
+    padding-top: 15px;
+    margin-left: 20px;
+    
+}
+
+.auth_buttons{
+    background: transparent;
+    padding-top: 12px;
+    border: none;
+    float: left;
+}
+
+.workersearch{
+    width: 100%;
+}
+
+.main{
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 390px;
+}
+
+.login-logo{
+    width: 50px;
+    height: 50px;
+    padding-right: -20px;
+}
+
+.holder{
+    display: table;
+    width: 100%;
+    height: 60px;
+}
+
+
+p{
+    color: darkgray;
+    font-size: 14px;
+    font-family: Comfortaa;
+    
+}
+
+.pass{
+    padding-top: 45px;
+    margin-bottom: -0px;
+}
+
+button{
+    background-color: #EEEEEE;
+    width: 115px;
+    height: 35px;
+    font-family: Comfortaa;
+    float: right;
+    
+}
+
+#username
+{
+   float: right;
+}
+
+b{
+    font-family: Comfortaa;
+}
+
+.footer{
+    padding-top: 60px
+}
+
+@media only screen and (max-width: 767px) {
+    .top_links{
+        display: none;
+        margin-top: 50px;
+        padding: 13px;
+        position: fixed;
+        vertical-align: middle;
+        width: 150px;
+        float: right;
+        background-color: lightgray;
+        z-index: -2;
+    }
+    .mainphoto{
+        padding-top: 200px;
+    }
+   
+}
+
+@media only screen and (min-width: 768px){
+    .top_links{
+        display: block !important;
+    }
+    .mainphoto{
+        padding-top: 100px;
+    }
+    
+    .sidebar {
+    top: 50px;
+    position: fixed;
+    padding: 20px;
+    z-index: 1000;
+    background-color: #c9c9c9;
+    height: 100%;
+    -webkit-box-shadow: 5px -4px 15px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 5px -4px 15px 0px rgba(0,0,0,0.4);
+    box-shadow: 5px -4px 15px 0px rgba(0,0,0,0.4);
+  }
+    .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.page-header {
+  padding-left: 100px;
+}
+
+@media only screen and (min-width: 991px){
+     .sidebar{
+    height: 100%;
+    
+}
+}
