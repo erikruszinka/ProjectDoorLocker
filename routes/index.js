@@ -2,12 +2,37 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const AccessHistory = require("../models/access-history");
+const mongoose = require('mongoose');
+const Employee = require('../models/employee');
 
 let User = require('../models/admin');
 
 // Home Page - Dashboard
 router.get('/', (req, res, next) => {
-  res.render('index', {title: 'Form Validation', success: false, errors:req.session.errors});
+  AccessHistory.find()
+  .sort({Access_time: -1})
+  .limit(5)
+  .select('Access_time Employee_id success')
+  .populate('Employee_id')
+  .exec()
+  .then(docs => {
+  
+    res.render('index', {
+      title: 'Form Validation',
+      success: false,
+      errors:req.session.errors,
+      data:docs,
+      });
+       
+  })
+  .catch(err => {
+      console.log(err);
+      read.status(500).json({
+          error:err
+      })
+  })
+  
 });
 
 // Login Form

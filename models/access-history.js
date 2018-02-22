@@ -12,10 +12,10 @@ const accessHistorySchema = new Schema({
     Employee_id: {
         type: mongoose.Schema.Types.ObjectId, ref: 'Employee'
     },
+
     Success: {
-        type:boolean
+        type:Boolean
     }
-    
 
 });
 

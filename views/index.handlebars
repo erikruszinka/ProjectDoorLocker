@@ -1,2 +1,18 @@
 
-<img  src="public/img/home-pic.png" class="img-responsive" alt="Generic placeholder thumbnail">
+{{#if user}}
+<ul class="people_list">
+
+  {{#each data}}
+    <li>
+    {{this.Access_time}}
+    {{this.Employee_id.First_Name}}
+    {{this.Employee_id.Last_Name}}
+   </li>
+  {{/each}}
+
+</ul>
+ {{else}}
+<img  src="public/img/home-pic.png" class="img-responsive" alt="Generic placeholder thumbnail">            
+{{/if}}
+
+<script src="/public/js/script.js"></script>
