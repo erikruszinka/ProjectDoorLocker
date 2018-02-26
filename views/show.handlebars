@@ -1,4 +1,4 @@
-<input class="form-control" id="myInput" type="text" placeholder="Search..">
+<input class="form-control" id="search" type="text" placeholder="Search..">
 <table>
     {{#if employees}}
 <table class="table table-bordered table-striped">
@@ -13,15 +13,15 @@
         {{#each employees}}
         <tr>
             
-            <td>{{First_Name}}</td>
-            <td>{{Last_Name}}</td>
+            <td class="name">{{First_Name}}</td>
+            <td class="name">{{Last_Name}}</td>
             <td>
-                <a class="btn left-align" href="/show/{{id}}"><i class="fas fa-info-circle"></i>Info</a>
-                <a class="btn left-align" href="/edit/{{id}}"><i class="fas fa-pencil-alt"></i>Edit</a>
+                <a class="btn left-align manage" href="/show/{{id}}"><i class="fas fa-info-circle"></i>Info</a>
+                <a class="btn left-align manage" href="/edit/{{id}}"><i class="fas fa-pencil-alt"></i>Edit</a>
 
                 <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form">
                 <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-eraser"></i>Delete</button>
+                    <button type="submit" class="btn  btndelete"><i class="fas fa-eraser"></i>Delete</button>
                 </form>
             </td>
         </tr>

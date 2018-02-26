@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="row">
-                       <div class="logo"><img src="/public/img/logo.gif" width="40px" height="40px" alt=""></div>
+                       <div class="logo"><a href="/"><img src="/public/img/logo.gif" width="40px" height="40px" alt=""></a></div>
                         <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
                         <div class="top_links">
                     
@@ -41,12 +41,15 @@
                         </div>
 
                         <div class="soc_buttons">
-                            <a href=""><i class="fab fa-trello" ></i></a>
-                            <a href=""><i class="fab fa-slack"></i></a>
-                            <a href=""><i class="fab fa-github"></i></a>                          
+                            <a href="https://trello.com/b/A6Dt4P8b/project-num2"><i class="fab fa-trello" ></i></a>
+                            <a href="https://gl-sovy-2017.slack.com/messages"><i class="fab fa-slack"></i></a>
+                            <a href="https://github.com/erikruszinka/ProjectDoorLocker"><i class="fab fa-github"></i></a>                          
+                        </div>
+                        <div class="projectname">
+                        <h3>GLDoors</h3>
                         </div>
                         {{#if user}}
-                        <h3 id="username">Hello, <a href="">{{user.username}}</a></h3>
+                        <h4 id="username">Hello, <a href="">{{user.username}}</a></h4>
                         {{/if}}
                     </div>
                 </div>
@@ -54,20 +57,20 @@
         </div>
     </header>
     <div class="container-fluid">
-      {{#if user}}
+      
           <div class="row">
            <div class="col-md-2 col-sm-3 hidden-xs col-lg-2 sidebar">
            <div class="row">
                
             <ul class="nav nav-sidebar">
-            
-              <li><a href="/"><i class="fas fa-home"></i>Home</a></li>  
-              <li><a href="/show"><i class="fas fa-address-book"></i>Show Employees</a></li>            
-              <li><a href="/registerEmployee"><i class="fas fa-user-plus"></i>Register Employee</a></li>
-              <li><a href="/registerAdmin"><i class="fas fa-unlock-alt"></i>Register Admin</a></li>
-              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            {{#if user}}
+              <li><a href="/"><i class="fas fa-home"></i> Home</a></li>  
+              <li><a href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>            
+              <li><a href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li>
+              <li><a href="/registerAdmin"><i class="fas fa-unlock-alt"></i> Register Admin</a></li>
+              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             {{else}}
-              <li><a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>              
+              <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>              
             {{/if}}
           </ul>
                     
