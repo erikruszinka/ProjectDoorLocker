@@ -49,7 +49,8 @@ i{
 
 .auth_buttons{
     background: transparent;
-    padding-top: 12px;
+    padding-top: 15px;
+    margin-left: 8px;
     border: none;
     float: left;
 }
@@ -59,17 +60,6 @@ p{
     font-size: 14px;
     font-family: Comfortaa;
     
-}
-
-.btndelete{
-    float: right;
-    font-family: Comfortaa;
-    font-size: 17px;
-
-}
-
-.btndelete:hover{
-    background-color: #c9c9c9;
 }
 
 #username{
@@ -100,18 +90,17 @@ th{
 .manage{
     font-size: 20px;
     background-color: #DDDDDD;
+    
 }
+
+button,label,input{
+    font-family: Comfortaa;
+}
+
+
 
 .manage:hover{
     background-color: #c9c9c9;
-}
-
-label{
-    font-family: Comfortaa;
-}
-
-input{
-    font-family: Comfortaa;
 }
 
 .logo{
@@ -120,13 +109,32 @@ input{
 }
 .projectname{
     float: left;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.group{
+    display: inline-block;
+}
+
+.register, .btnsave{
+    float: right;
+}
+
+span{
+    font-family: Comfortaa;
+    display: block;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+.img-responsive{
+    border-radius: 100px;
 }
 
 
 
 
-
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 900px) {
     .top_links{
         display: none;
         margin-top: 50px;
@@ -138,20 +146,21 @@ input{
         background-color: lightgray;
         z-index: -2;
     }
-    #username{
-        display: none;
+    
+    #background{
+        background-position: inherit;
     }
-   
+
+    .manage{
+        display: block;
+    }
 }
 
 @media only screen and (min-width: 768px){
     .top_links{
         display: block !important;
     }
-    .mainphoto{
-        padding-top: 100px;
-    }
-    
+   
     .sidebar {
     top: 50px;
     position: fixed;
@@ -168,13 +177,4 @@ input{
     padding-left: 40px;
   }
   
-}
-
-
-
-@media only screen and (min-width: 991px){
-     .sidebar{
-    height: 100%;
-    
-}
 }
