@@ -5,12 +5,12 @@
    <title>Door Locker - Admin panel</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/public/js/script.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/v4-shims.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/v4-shims.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +24,14 @@
                 <div class="col-md-12">
                     <div class="row">
                        <div class="logo"><a href="/"><img src="/public/img/logo.gif" width="40px" height="40px" alt=""></a></div>
+                       <div class="projectname">
+                        <h3>GLDoors</h3>
+                        </div>
                         <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
                         <div class="top_links">
                     
             {{#if user}}
+      
               <a href="/" class="hidden-md hidden-lg hidden-sm">Home</a>     
               <a href="/show" class="hidden-md hidden-lg hidden-sm">Show Employees</a>          
               <a href="/registerEmployee" class="hidden-md hidden-lg hidden-sm">Register Employee</a>
@@ -45,12 +49,8 @@
                             <a href="https://gl-sovy-2017.slack.com/messages"><i class="fab fa-slack"></i></a>
                             <a href="https://github.com/erikruszinka/ProjectDoorLocker"><i class="fab fa-github"></i></a>                          
                         </div>
-                        <div class="projectname">
-                        <h3>GLDoors</h3>
-                        </div>
-                        {{#if user}}
-                        <h4 id="username">Hello, <a href="">{{user.username}}</a></h4>
-                        {{/if}}
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -64,6 +64,12 @@
                
             <ul class="nav nav-sidebar">
             {{#if user}}
+             
+              
+               <li> <a href="">Hello, {{user.username}}</a></h4></li>
+              
+            
+            
               <li><a href="/"><i class="fas fa-home"></i> Home</a></li>  
               <li><a href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>            
               <li><a href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li>

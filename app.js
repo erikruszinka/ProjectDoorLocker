@@ -36,7 +36,6 @@ app.use('/public', express.static('public'))
 
 //app.use(upload.single('profilephoto'))
 
-
 //body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));

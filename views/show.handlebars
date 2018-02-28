@@ -19,9 +19,9 @@
                 <a class="btn left-align manage" href="/show/{{id}}"><i class="fas fa-info-circle"></i>Info</a>
                 <a class="btn left-align manage" href="/edit/{{id}}"><i class="fas fa-pencil-alt"></i>Edit</a>
 
-                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" id="delete-form">
+                <form action="/registerEmployee/{{id}}?_method=DELETE" method="post" class="manage" id="delete-form">
                 <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn  btndelete"><i class="fas fa-eraser"></i>Delete</button>
+                    <a type="submit" class="btn  manage"><i class="fas fa-eraser"></i>Delete</a>
                 </form>
             </td>
         </tr>
