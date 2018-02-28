@@ -1,8 +1,8 @@
-echo -n "IMPORTANT! Project need to be cloned directly in to:"
+echo -n "IMPORTANT! Project need to be cloned directly in to: ~"
 echo -n "/home/pi/"
 echo -n "Executed script path is /home/pi/ProjectDoorLocker/install.sh"
-sudo cat /home/pi/.bashrc > bashBackup
-sudo cat bashConfig > /home/pi/.bashrc
+sudo cat /etc/rc.local > localBackup
+sudo cat bashConfig > /etc/rc.local
 sudo apt update
 echo -n "Please change your password!"
 echo -n "Current password for user 'pi' is 'raspberry'"
