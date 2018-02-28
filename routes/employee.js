@@ -1,10 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const LocalStrategy = require('passport-local').Strategy;
-/*
 const multer = require('multer');
-const upload = multer({storage: './public/uploads'});
-*/
+
+const storage = multer.diskStorage({
+    destination: (req,file,cb) => {
+        cb(null, './public/uploads')
+    },
+    filename: (req,file,cb) => {
+        cb(null,Date.now() + '-'+ file.originalname)
+    }
+});
+
+const upload = multer({storage});
+
 let Employee = require('../models/employee');
 
 router.get('/',ensureAuthenticated,(req,res,next)=>{
@@ -21,7 +30,7 @@ function ensureAuthenticated(req, res, next){
     }
   }
 //  router.post('/',upload.single('profilephote'),(req,res,next)=>
-router.post('/',ensureAuthenticated,(req,res,next)=>{
+router.post('/',ensureAuthenticated,upload.single('profilephoto'),(req,res,next)=>{
      const fname=req.body.fname;
      const lname=req.body.lname;
      const gender=req.body.gender;
@@ -31,6 +40,8 @@ router.post('/',ensureAuthenticated,(req,res,next)=>{
      const code=req.body.zipcode;
      const mail=req.body.email;
      const phonenumber=req.body.phoneNumber;
+     const img = req.file;
+     console.log(img);
 
 //check img field
 /*
