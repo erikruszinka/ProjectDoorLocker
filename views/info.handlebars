@@ -1,14 +1,20 @@
 <div class="row">
     <div class="container">
     <div class="col-sm-6 col-md-6">
+        <div class="employeename">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="120" height="120" class="img-responsive" alt="Generic placeholder thumbnail">
         <h3>{{employee.First_Name}} {{employee.Last_Name}}</h3>
-        <span>{{employee.Gender}}</span>
+        </div>
         <p>Info</p>
+        <span>Gender: {{employee.Gender}}</span>
+        <span>Date of birth: {{employee.Date_of_birth}}</span>
+        <span>Email: {{employee.email}}</span>
+        <span> {{employee.phonenumber}}</span>
         <div>
             <p>Adress</p>
-            {{employee.City}}
-            {{employee.Address}}
-            {{employee.Code}}
+            <span>City: {{employee.City}}</span>
+            <span>Address: {{employee.Address}}</span>
+            <span>ZIP code: {{employee.Code}}</span>
         </div>
       </div>
     </div>

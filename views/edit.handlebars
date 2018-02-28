@@ -2,6 +2,7 @@
 
 <form method="post" action="/registerEmployee/{{employee.id}}?_method=PUT">
 <input type="hidden" name="_method" value="PUT">
+<div class="col-md-6">
   <div class="form-group">
     <label>First Name</label>
     <input class="form-control" type="text" name="fname" placeholder="Name" value="{{employee.First_Name}}">
@@ -21,7 +22,8 @@
     <label>Date of Birth</label>
     <input class="form-control" type="text" name="birth" value="{{employee.Date_of_birth}}">
   </div>
-
+</div>
+<div class="col-md-6">
   <div class="form-group">
     <label>City</label>
     <input class="form-control" type="text" name="city" placeholder="e.g. Košice" value="{{employee.City}}">
@@ -46,12 +48,12 @@
     <label>Phone Number</label>
     <input class="form-control" type="text" name="phoneNumber" placeholder="0910 xxx xxx" value="{{employee.phonenumber}}">
   </div>
+  <button class="btn btnsave" type="submit" value="Save">Save</button>
 <!--
   <div class="form-group">
     <label>Photo</label>
     <input class="form-control" type="file" name="profilephoto" >
   </div> 
 -->
-  <button class="btn btn-primary" type="submit" value="Save">Savae</button>
-
+</div>
 </form>
