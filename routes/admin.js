@@ -51,7 +51,7 @@ router.post('/', (req, res, next) => {
     Admin.registerUser(newUser, (err, user) => {
         if(err) throw err;
         req.flash('success_msg', 'You are registered and can log in');
-        res.redirect('/');
+        res.redirect('/registerAdmin');
       });
     }
   });

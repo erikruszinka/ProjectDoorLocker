@@ -15,7 +15,7 @@ router.get('/',ensureAuthenticated,(req,res,next)=>{
     });    
 });
 //Show one
-router.get('/:id',(req,res)=>{
+router.get('/:id',ensureAuthenticated,(req,res)=>{
     Employee.findOne({
         _id: req.params.id
         })

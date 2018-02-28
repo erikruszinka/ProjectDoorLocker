@@ -81,8 +81,8 @@ if (errors){
     //create user
     Employee.createUser(newUser, (err, user) => {
         if(err) throw err;
-        req.flash('success_msg', 'Employee registrated');
-        res.redirect('/');
+        req.flash('success_msg', 'Employee registered');
+        res.redirect('/registerEmployee');
         console.log(newUser);
       });
     }
@@ -117,10 +117,10 @@ router.put('/:id',(req,res)=>{
     });
 
 //Delete
-router.delete('/:id',(req,res)=>{
+router.delete('/:id',ensureAuthenticated,(req,res)=>{
     Employee.remove({_id:req.params.id})
     .then(() =>{
-        res.redirect('/');
+        res.redirect('/show');
     });
 });
 

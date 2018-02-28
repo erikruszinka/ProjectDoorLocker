@@ -6,7 +6,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Edit one
-router.get('/:id',(req,res)=>{
+router.get('/:id',ensureAuthenticated,(req,res)=>{
     Employee.findOne({
         _id: req.params.id
         })
