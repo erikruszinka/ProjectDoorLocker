@@ -1,0 +1,3 @@
+#!/bin/sh -e
+sudo sh /home/pi/ProjectDoorLocker/raspberry/configuration/install_part2.sh
+exit 0
