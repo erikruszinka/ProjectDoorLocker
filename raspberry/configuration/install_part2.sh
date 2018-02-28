@@ -1,3 +1,12 @@
+#!/bin/bash
+echo "Project Door Locker instalation"
+echo "If you need to abort it now then you need to run manualy: "
+echo "sh /home/pi/ProjectDoorLocker/raspberry/configuration/install_part2.sh"
+echo "Continue by pressing [ENTER]"
+read var_continue
+clear
+sudo rm /etc/rc.local
+sudo cat /home/pi/ProjectDoorLocker/raspberry/configuration/localBackup > /etc/rc.local
 sudo apt-get purge wolfram-engine
 sudo apt-get purge libreoffice*
 sudo apt-get clean
