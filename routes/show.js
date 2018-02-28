@@ -27,7 +27,7 @@ router.get('/:id',ensureAuthenticated,(req,res)=>{
 });
 
 //Edit one
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',ensureAuthenticated,(req,res)=>{
     Employee.findOne({
         _id: req.params.id
         })

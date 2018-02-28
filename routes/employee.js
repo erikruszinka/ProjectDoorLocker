@@ -109,7 +109,7 @@ router.put('/:id',(req,res)=>{
         employee.save()
         .then(employee=>{
             req.flash('success_msg', 'Employee upgraded');
-            res.redirect('/');
+            res.redirect('/show');
             console.log(employee);
             
         });
@@ -117,7 +117,7 @@ router.put('/:id',(req,res)=>{
     });
 
 //Delete
-router.delete('/:id',ensureAuthenticated,(req,res)=>{
+router.delete('/:id',(req,res)=>{
     Employee.remove({_id:req.params.id})
     .then(() =>{
         res.redirect('/show');
