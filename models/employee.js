@@ -31,11 +31,18 @@ const EmployeeSchema=new Schema({
     },
     phonenumber:{
         type:String
-    }
-/*    profilephoto:{
+    },
+    profilephoto:{
         type:String        
-    } 
-*/       
+    },
+    cardId: {
+        type: String
+    },
+
+    Logs: {
+        type:[String]
+    }
+      
 });
 
 const Employee= module.exports= mongoose.model('Employee', EmployeeSchema);

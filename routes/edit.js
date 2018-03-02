@@ -5,6 +5,7 @@ const Employee= mongoose.model('Employee');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+
 //Edit one
 router.get('/:id',ensureAuthenticated,(req,res)=>{
     Employee.findOne({

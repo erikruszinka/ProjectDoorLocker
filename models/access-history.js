@@ -9,8 +9,9 @@ const accessHistorySchema = new Schema({
         type:Date,
         default: Date.now
     },
-    Employee_id: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Employee'
+
+    CardId: {
+        type: String,ref: 'Employee'
     },
 
     Success: {

@@ -2,11 +2,20 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const mongoose=require('mongoose');
+// const Access = require('../models/access-history');
+const Employee = require('../models/employee');
 
 let Admin = require('../models/admin');
 
 // RegisterAdmin Form
 router.get('/',ensureAuthenticated, (req, res, next) => {
+//   Employee.update(
+//     { cardId: '19221252164' },
+//     { $addToSet: { Logs: new Date() } }
+//  )
+
+//  .catch(err => console.log(err));
     res.render('registerAdmin');
   });
 

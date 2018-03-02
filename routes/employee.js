@@ -5,10 +5,10 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) => {
-        cb(null, './public/uploads')
+        cb(null, './public/uploads');
     },
     filename: (req,file,cb) => {
-        cb(null,Date.now() + '-'+ file.originalname)
+        cb(null,Date.now() + file.originalname);
     }
 });
 
@@ -40,8 +40,9 @@ router.post('/',ensureAuthenticated,upload.single('profilephoto'),(req,res,next)
      const code=req.body.zipcode;
      const mail=req.body.email;
      const phonenumber=req.body.phoneNumber;
-     const img = req.file;
-     console.log(img);
+     const CardId = req.body.cardId;
+     const profilephoto = req.file.path;
+     console.log(CardId);
 
 //check img field
 /*
@@ -85,8 +86,9 @@ if (errors){
         Address:address,
         Code:code,
         email:mail,
-        phonenumber:phonenumber
-        //profilephoto:profilephotoName
+        phonenumber:phonenumber,
+        profilephoto:profilephoto,
+        cardId:CardId,
     });
 
     //create user
@@ -100,7 +102,7 @@ if (errors){
 });
 
 //Edit
-router.put('/:id',(req,res)=>{
+router.put('/:id',upload.single('profilephoto'),(req,res)=>{
     Employee.findOne({
         _id: req.params.id
         })
@@ -116,6 +118,8 @@ router.put('/:id',(req,res)=>{
         employee.Code=req.body.zipcode;
         employee.email=req.body.email;
         employee.phonenumber=req.body.phoneNumber;
+        employee.profilephoto = req.file.path;
+        employee.CardId = req.body.cardId
 
         employee.save()
         .then(employee=>{
