@@ -11,8 +11,15 @@ let Admin = require('../models/admin');
 // RegisterAdmin Form
 router.get('/',ensureAuthenticated, (req, res, next) => {
 //   Employee.update(
-//     { cardId: '19221252164' },
-//     { $addToSet: { Logs: new Date() } }
+//     { cardId: '54321' },
+//     {
+//       $push: {
+//          Logs: {
+//             $each: [ new Date() ],
+//             $position: 0
+//          }
+//       }
+//     }
 //  )
 
 //  .catch(err => console.log(err));

@@ -1,15 +1,15 @@
 {{#if user}}
-{{!-- <ul class="people_list">
+<ul class="people_list">
 
   {{#each data}}
     <li>
-    {{this.Access_time}}
-    {{this.CardId}}
+    {{this.Logs.[0]}}
+    {{this.cardId}}
     {{this.First_Name}}
    </li>
   {{/each}}
 
-</ul> --}}
+</ul>
  {{else}}
 <img  src="public/img/home-pic.png" class="img-responsive" alt="Generic placeholder thumbnail">    
 

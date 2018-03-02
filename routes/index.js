@@ -12,7 +12,7 @@ let User = require('../models/admin');
 router.get('/', (req, res, next) => {
   Employee.find()
   // .sort({AccessHistory: -1})
-  .limit()
+  // .limit(5)
   .select()
   // .populate('Employee')
   .exec()
@@ -22,6 +22,7 @@ router.get('/', (req, res, next) => {
         title: 'Form Validation',
         success: false,
         errors:req.session.errors,
+        data:docs
       });
 
     })
