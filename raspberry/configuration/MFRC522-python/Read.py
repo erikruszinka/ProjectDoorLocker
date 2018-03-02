@@ -12,7 +12,7 @@ def end_read(signal,frame):
     global continue_reading
     #print "Ctrl+C captured, ending read."
     continue_reading = False
-    GPIO.cleanup()
+    #GPIO.cleanup()
 
 # Hook the SIGINT
 signal.signal(signal.SIGINT, end_read)
@@ -44,7 +44,7 @@ while continue_reading:
         #print "Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])
 	card=str(str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3]))
 	print card
-	break
+	#break
 
         # This is the default key for authentication
         key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
