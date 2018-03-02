@@ -52,22 +52,22 @@ while continue_reading:
 		# POROVNANIE CARD ID S DB
 		# AK SPRAVNE isValid > True
 		# INAK isValid > False
-		if isValid:
-			print "KARTA ROZOZNANA"
+		if isValid == True:
+			print("KARTA ROZOZNANA")
 			# ZAPNUt KAMERU
 			# UROBIT FOTO
 			isRecognized = False
-			print "NIECO"
+			print("NIECO")
 			# VOLAT AWS A UROBIT POROVNANIE FOTO
 			# AK ROZOZNANIE USPESNE isRecognized > True
-			if isRecognized:
-				print "ZAPIS DO DB USPESNE"
+			if isRecognized == True:
+				print("ZAPIS DO DB USPESNE")
 				# ZAPIS DO DB OVERENIE USPESNE
 			else:
-				print "ZAPIS DO DB NEUSPESNE"
+				print("ZAPIS DO DB NEUSPESNE")
 				# ZAPIS DO DB NEUSPESNE
 		else:
-		print "ZAPIS DO DB NEUSPESNE ZLA KARTA"
+		print("ZAPIS DO DB NEUSPESNE ZLA KARTA")
 		# ZAPIS DO DB NEUSPESNE ZLA KARTA
 	else:
 	sleep(1)
