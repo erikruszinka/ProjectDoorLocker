@@ -1,0 +1,3 @@
+#!/bin/sh -e
+sudo sh /home/pi/ProjectDoorLocker/raspberry/configuration/inputHandler.py
+exit 0

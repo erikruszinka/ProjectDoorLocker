@@ -9,7 +9,7 @@ while True:
     input_state = GPIO.input(pin)
     if input_state==False:
         print('pressed')
-        os.system("shutdown -h now")
+        #os.system("shutdown -h now")
         time.sleep(1)
     else:
         time.sleep(1)

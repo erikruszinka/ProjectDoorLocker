@@ -6,7 +6,7 @@ echo "Continue by pressing [ENTER]"
 read var_continue
 clear
 sudo rm /etc/rc.local
-sudo cat /home/pi/ProjectDoorLocker/raspberry/configuration/localBackup > /etc/rc.local
+sudo cat /home/pi/ProjectDoorLocker/raspberry/configuration/localAutostart > /etc/rc.local
 sudo apt-get purge wolfram-engine
 sudo apt-get purge libreoffice*
 sudo apt-get clean
@@ -18,6 +18,9 @@ sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install libxvidcore-dev libx264-dev
 sudo apt-get install libgtk2.0-dev libgtk-3-dev
+sudo python -m pip install pymongo
+python -m pip install --upgrade pymongo
+python -m pip install pymongo[gssapi]
 sudo apt update
 sudo apt upgrade
 reboot
