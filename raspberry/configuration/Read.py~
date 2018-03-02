@@ -60,15 +60,26 @@ while continue_reading:
 		#AK SPRAVNE isValid > True
 		#INAK isValid > False 
 		if isValid:
+			print "KARTA ROZOZNANA"
 			#ZAPNUt KAMERU
 			#UROBIT FOTO
 			
 			isRecognized = False
+			print "NIECO"
 			#VOLAT AWS A UROBIT POROVNANIE FOTO
 			#AK ROZOZNANIE USPESNE isRecognized > True
 			
 			if isRecognized:
+				print "ZAPIS DO DB USPESNE"
+				#ZAPIS DO DB OVERENIE USPESNE
 				
+			else:
+				print "ZAPIS DO DB NEUSPESNE"
+				#ZAPIS DO DB NEUSPESNE
+				
+		else:
+			print "ZAPIS DO DB NEUSPESNE ZLA KARTA"
+			#ZAPIS DO DB NEUSPESNE ZLA KARTA
 		
 	
 		sleep(1)
