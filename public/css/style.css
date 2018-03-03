@@ -24,6 +24,15 @@ i{
     color: rgb(82, 82, 82);
     font-size: 30px;
 }
+
+.login{
+    margin-top: 140px;
+}
+
+.logo{
+    margin-bottom: 10px;
+}
+
 #delete-form{
     display: inline;
 }
@@ -110,6 +119,10 @@ button,label,input{
 .projectname{
     float: left;
     font-family: 'Montserrat', sans-serif;
+}
+
+.login-logo{
+    margin-bottom: 10px;
 }
 
 .group{
