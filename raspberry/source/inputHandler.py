@@ -2,15 +2,11 @@ import RPi.GPIO as GPIO
 import time
 import os
 pinShutdown = 26
+pinTestButton = 21
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(pinShutdown,GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-pinTestButton = 21
 GPIO.setup(pinTestButton,GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-os.system("")
-
 while True:
     input_state_shutdown = GPIO.input(pinShutdown)
     input_state_testPin = GPIO.input(pinTestButton)

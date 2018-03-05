@@ -23,4 +23,5 @@ python -m pip install --upgrade pymongo
 python -m pip install pymongo[gssapi]
 sudo apt update
 sudo apt upgrade
+sudo apt-get install python-picamera
 reboot

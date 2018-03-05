@@ -9,6 +9,7 @@ sudo cat /etc/rc.local > /home/pi/ProjectDoorLocker/raspberry/configuration/loca
 sudo rm /etc/rc.local
 sudo cat bashConfig > /etc/rc.local
 sudo apt update
+sudo apt upgrade
 echo "Please change your password!"
 echo "Current password for user 'pi' is 'raspberry'"
 sudo passwd
