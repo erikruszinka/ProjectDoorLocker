@@ -1,6 +1,6 @@
 <h3>Edit</h3>
 
-<form method="post" enctype="multipart/form-data" action="/registerEmployee/{{employee.id}}?_method=PUT">
+<form method="post" action="/registerEmployee/{{employee.id}}?_method=PUT">
 <input type="hidden" name="_method" value="PUT">
 <div class="col-md-6">
   <div class="form-group">
@@ -55,10 +55,10 @@
   </div>
   <button class="btn btnsave" type="submit" value="Save">Save</button>
 
-  <div class="form-group">
+  {{!-- <div class="form-group">
     <label>Photo</label>
     <input class="form-control" type="file" name="profilephoto">
-  </div> 
+  </div>  --}}
 
 </div>
 </form>

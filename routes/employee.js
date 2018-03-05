@@ -102,12 +102,13 @@ if (errors){
 });
 
 //Edit
-router.put('/:id',upload.single('profilephoto'),(req,res)=>{
+router.put('/:id',(req,res)=>{
     Employee.findOne({
         _id: req.params.id
         })
     .then(employee=>{
-        
+        console.log(req.params.id);
+        console.log(req.body.fname);
         //edit
         employee.First_Name=req.body.fname;
         employee.Last_Name=req.body.lname;
@@ -118,14 +119,14 @@ router.put('/:id',upload.single('profilephoto'),(req,res)=>{
         employee.Code=req.body.zipcode;
         employee.email=req.body.email;
         employee.phonenumber=req.body.phoneNumber;
-        employee.profilephoto = req.file.path;
-        employee.CardId = req.body.cardId
+        // employee.profilephoto = req.file.path;
+        employee.cardId = req.body.cardId
 
         employee.save()
         .then(employee=>{
             req.flash('success_msg', 'Employee upgraded');
             res.redirect('/show');
-            console.log(employee);
+            // console.log(employee);
             
         });
         });

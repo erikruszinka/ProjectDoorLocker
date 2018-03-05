@@ -20,7 +20,9 @@ router.get('/:id',ensureAuthenticated,(req,res)=>{
         _id: req.params.id
         })
     .then(employee=>{
+        console.log(employee);
         res.render('info',{
+            
             employee:employee
         });
     });
