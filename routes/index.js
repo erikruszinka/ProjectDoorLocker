@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const dateFormat = require('dateformat');
 const LocalStrategy = require('passport-local').Strategy;
 // const AccessHistory = require("../models/access-history");
 const mongoose = require('mongoose');
@@ -17,7 +18,13 @@ router.get('/', (req, res, next) => {
   // .populate('Employee')
   .exec()
   .then(docs => {
-    console.log(docs);
+
+    for(i=0;i<docs.length;i++){
+      for(j=0;j<docs[i].Logs.length;j++){
+       docs[i].Logs[j] = dateFormat(docs[i].Logs[j], "dddd, mmmm dS, yyyy, h:MM:ss TT");
+      }
+    }
+    console.log();
       res.render('index', {
         title: 'Form Validation',
         success: false,

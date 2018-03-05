@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose=require('mongoose');
 const Employee= mongoose.model('Employee');
 const passport = require('passport');
+const dateFormat = require('dateformat');
 const LocalStrategy = require('passport-local').Strategy;
 
 //show all
@@ -20,6 +21,11 @@ router.get('/:id',ensureAuthenticated,(req,res)=>{
         _id: req.params.id
         })
     .then(employee=>{
+
+        for(i=0;i<employee.Logs.length;i++){
+            employee.Logs[i] = dateFormat(employee.Logs[i], "dddd, mmmm dS, yyyy, h:MM:ss TT");
+          }
+
         console.log(employee);
         res.render('info',{
             

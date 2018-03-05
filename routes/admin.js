@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose=require('mongoose');
+const dateFormat = require('dateformat');
 // const Access = require('../models/access-history');
 const Employee = require('../models/employee');
 
@@ -10,12 +11,15 @@ let Admin = require('../models/admin');
 
 // RegisterAdmin Form
 router.get('/',ensureAuthenticated, (req, res, next) => {
+//   var now = new Date();
+//   console.log(now);
 //   Employee.update(
-//     { cardId: '54321' },
+    
+//     { cardId: '123' },
 //     {
 //       $push: {
 //          Logs: {
-//             $each: [ new Date() ],
+//             $each: [ now ],
 //             $position: 0
 //          }
 //       }

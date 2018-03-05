@@ -113,7 +113,8 @@ router.put('/:id',(req,res)=>{
         employee.First_Name=req.body.fname;
         employee.Last_Name=req.body.lname;
         employee.Gender=req.body.gender;
-        employee.Date_of_birth=req.body.birth;
+        employee.Date_of_birth=req.bodyrs
+        .birth;
         employee.City=req.body.city;
         employee.Address=req.body.address;
         employee.Code=req.body.zipcode;
@@ -128,7 +129,7 @@ router.put('/:id',(req,res)=>{
             res.redirect('/show');
             // console.log(employee);
             
-        });
+            });
         });
     });
 

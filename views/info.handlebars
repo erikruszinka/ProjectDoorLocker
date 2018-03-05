@@ -16,7 +16,16 @@
             <span>City: {{employee.City}}</span>
             <span>Address: {{employee.Address}}</span>
             <span>ZIP code: {{employee.Code}}</span>
-            <div>Attendance: {{employee.Logs}}</div>
+            <div>Attendance: 
+
+                  {{#each employee.Logs}}
+                    <li>
+                        {{this}}
+                        
+                    </li>
+                    {{/each}}
+                
+                </div>
         </div>
         
       </div>
