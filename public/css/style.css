@@ -243,5 +243,12 @@ span{
     padding-right: 40px;
     padding-left: 40px;
   }
+
+  .registerForm{
+    width:50%;
+    float: left;
+}
   
 }
+
+
