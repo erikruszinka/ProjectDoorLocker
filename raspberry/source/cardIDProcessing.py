@@ -5,36 +5,32 @@ import pprint
 import sys
 import pymongo
 import boto3
+import json
 from pymongo import MongoClient
 from picamera import PiCamera
 
-BUCKET = "sovyrekognition"
-KEY_SOURCE = "Rihana2.jpg"
-KEY_TARGET = "Rihana1.jpg"
-
-def compare_faces(bucket, key, bucket_target, key_target, threshold=80, region="eu-west-1"):
-    rekognition = boto3.client("rekognition",region)
-    response = rekognition.compare_faces(
+client = boto3.client('rekognition')
+response = client.compare_faces(
     SourceImage={
         'S3Object': {
-            'Bucket': bucket,
-            'Name': key,
+            'Bucket': 'sovyrekognition2',
+            'Name':'Rihana1.jpg',
             }
         },
     TargetImage={
         'S3Object': {
-            'Bucket': bucket_target,
-            'Name': key_target,
+            'Bucket': 'sovyrekognition2',
+            'Name':'Rihana2.jpg',
             }
         },
-    SimilarityThreshold=threshold,
+        SimilarityThreshold=80
     )
-    return response['SourceImageFace'], response['FaceMatches']
+respo=json.dumps(response)
+load=json.loads(respo)
+print(load['FaceMatches'][0]['Similarity'])
 
-source_face, matches = compare_faces(BUCKET, KEY_SOURCE, BUCKET, KEY_TARGET)
 
-
-
+ 
 
 
 
