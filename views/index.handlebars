@@ -1,19 +1,55 @@
-{{#if user}}
-<ul class="people_list">
+<div class="wrapper">
+        {{#if user}}
+         <div id="tabs">
+            <button class="tab active" id="defaultOpen" onclick="openMe('first')" >Access point 1</button>           
+            <button class="tab tab-two" onclick="openMe('second')" >Access point 2</button>
+            <button class="tab" onclick="openMe('third')" >Access point 3</button>
+         </div>
+        
+        <div id="first" class="content">
+            <h2>Access point 1</h2>
+             <ul class="people_list">
 
-  {{#each data}}
-    <li>
-    {{this.Logs.[0]}}
-    {{this.First_Name}}
-    {{this.Last_Name}}
-   </li>
+ 
+<table class="table table-dark">
+<tr>
+  <td>#</td>
+  <td>First Name</td>
+  <td>Last Name</td>
+  <td>Access Time</td>
+</tr>
+ {{#each data}}
+<tr>
+  <td><span><img src="../{{this.profilephoto}}" width="50" height="50" class="img-responsive"></span></td>
+
+  <td><span>{{this.First_Name}}</span></td>
+ 
+  <td><span>{{this.Last_Name}}</span></td>
+  
+  <td><span>{{this.Logs.[0]}}</span></td>
+
+  
+</tr>
+
   {{/each}}
+</table>
 
-</ul>
- {{else}}
-<img  src="public/img/home-pic.png" class="img-responsive" alt="Generic placeholder thumbnail">    
+</ul>    
 
-
+        </div>
+        <div id="second" class="content">
+            <h2>Access point 2</h2>
+            <p></p>
+        </div>
+        <div id="third" class="content">
+            <h2>Access point 3</h2>
+            <p></p>
+        </div>
+        </div>
+        
+{{else}}
+<img  src="public/img/home-pic.png" class="img-responsive" alt="Generic placeholder thumbnail">
 {{/if}}
+
 
 <script src="/public/js/script.js"></script>
