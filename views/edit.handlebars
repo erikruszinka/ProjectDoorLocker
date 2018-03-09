@@ -1,8 +1,8 @@
-<h3>Edit</h3>
 
 <form method="post" action="/registerEmployee/{{employee.id}}?_method=PUT">
 <input type="hidden" name="_method" value="PUT">
-<div class="col-md-6">
+<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+  <h3>Edit</h3>
   <div class="form-group">
     <label>First Name</label>
     <input class="form-control" type="text" name="fname" placeholder="Name" value="{{employee.First_Name}}">
@@ -22,8 +22,7 @@
     <label>Date of Birth</label>
     <input class="form-control" type="text" name="birth" value="{{employee.Date_of_birth}}">
   </div>
-</div>
-<div class="col-md-6">
+
   <div class="form-group">
     <label>City</label>
     <input class="form-control" type="text" name="city" placeholder="e.g. Košice" value="{{employee.City}}">

@@ -5,7 +5,7 @@
    <title>Door Locker - Admin panel</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat|Libre+Franklin" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,27 +27,28 @@
                        <div class="projectname">
                         <h3>GLDoors</h3>
                         </div>
+                        <input class="form-control" id="globalsearch" type="text" placeholder="Search..">
                         <button class="auth_buttons hidden-md hidden-sm hidden-lg"><i class="fas fa-bars"></i></button>
                         <div class="top_links">
                     
             {{#if user}}
       
-              <a href="/" class="hidden-md hidden-lg hidden-sm">Home</a>     
-              <a href="/show" class="hidden-md hidden-lg hidden-sm">Show Employees</a>          
-              <a href="/registerEmployee" class="hidden-md hidden-lg hidden-sm">Register Employee</a>
-              <a href="/registerAdmin" class="hidden-md hidden-lg hidden-sm">Register Admin</a>
-              <a href="/logout" class="hidden-md hidden-lg hidden-sm">Logout</a>
+              <a href="/" class="drop-links hidden-md hidden-lg hidden-sm">Home</a>     
+              <a href="/show" class="drop-links hidden-md hidden-lg hidden-sm">Show Employees</a>          
+              <a href="/registerEmployee" class="drop-links hidden-md hidden-lg hidden-sm">Register Employee</a>
+              <a href="/registerAdmin" class="drop-links hidden-md hidden-lg hidden-sm">Register Admin</a>
+              <a href="/logout" class=" drop-links hidden-md hidden-lg hidden-sm">Logout</a>
             {{else}}
-              <a href="/login" class="hidden-md hidden-lg hidden-sm">Login</a>
+              <a href="/login" class="drop-links hidden-md hidden-lg hidden-sm">Login</a>
             {{/if}} 
                                           
                                                 
                         </div>
 
                         <div class="soc_buttons">
-                            <a href="https://trello.com/b/A6Dt4P8b/project-num2"><i class="fab fa-trello" ></i></a>
-                            <a href="https://gl-sovy-2017.slack.com/messages"><i class="fab fa-slack"></i></a>
-                            <a href="https://github.com/erikruszinka/ProjectDoorLocker"><i class="fab fa-github"></i></a>                          
+                            <a  href="https://trello.com/b/A6Dt4P8b/project-num2"><i class="social fab fa-trello" ></i></a>
+                            <a  href="https://gl-sovy-2017.slack.com/messages"><i class="social fab fa-slack"></i></a>
+                            <a  href="https://github.com/erikruszinka/ProjectDoorLocker"><i class="social fab fa-github"></i></a>                          
                         </div>
                         
                         
@@ -66,15 +67,15 @@
             {{#if user}}
              
               
-               <li> <a href="">Hello, {{user.username}}</a></h4></li>
+               <li> <a class="welcome" href="">Hello, {{user.username}}</a></h4></li><hr>
               
             
             
-              <li><a href="/"><i class="fas fa-home"></i> Home</a></li>  
-              <li><a href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>            
-              <li><a href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li>
-              <li><a href="/registerAdmin"><i class="fas fa-unlock-alt"></i> Register Admin</a></li>
-              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              <li><a class="welcome" onclick="openMe('first')" href="/"><i class="fas fa-home"></i> Home</a></li><hr>  
+              <li><a class="welcome" onclick="openMe('second')" href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>  <hr>          
+              <li><a class="welcome" onclick="openMe('third')" href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li> <hr>
+              <li><a class="welcome" onclick="openMe('fourth')" href="/registerAdmin"><i class="fas fa-unlock-alt"></i> Register Admin</a></li> <hr>
+              <li><a class="welcome" onclick="openMe('fifth')" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li><hr>
             {{else}}
               <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>              
             {{/if}}
@@ -104,6 +105,7 @@
                 
                 
                 </div>
+            </div>
             </div>
   </body>
 </html>
