@@ -44,5 +44,5 @@ while continue_reading:
         # Print UID
         ##print "Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])
         cardID = str(str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3]))
-        os.system("python /home/pi/ProjectDoorLocker/raspberry/source/cardIDProcessing.py "+cardID)
+        os.system("python3.5 /home/pi/ProjectDoorLocker/raspberry/source/cardIDProcessing.py "+cardID)
         time.sleep(4)
