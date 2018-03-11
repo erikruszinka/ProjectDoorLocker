@@ -9,43 +9,13 @@ import json
 from pymongo import MongoClient
 from picamera import PiCamera
 
-client = boto3.client('rekognition')
-response = client.compare_faces(
-    SourceImage={
-        'S3Object': {
-            'Bucket': 'sovyrekognition2',
-            'Name':'Rihana1.jpg',
-            }
-        },
-    TargetImage={
-        'S3Object': {
-            'Bucket': 'sovyrekognition2',
-            'Name':'Rihana2.jpg',
-            }
-        },
-        SimilarityThreshold=80
-    )
-respo=json.dumps(response)
-load=json.loads(respo)
-print(load['FaceMatches'][0]['Similarity'])
-
-
- 
-
-
-
-
-
-
-'''
 cardID = sys.argv[1]
-#print(cardID)
 
+print(cardID)
 
 client = MongoClient('mongodb://Admin1:akademiasovy@ds229388.mlab.com:29388/recog')
 db = client['recog']
-   db.employees.update(
-    
+    db.employees.update(
     {"cardId":cardID},
     {
         "$push": {
@@ -62,8 +32,56 @@ isvalid = db.employees.find_one({"cardId":cardID})
 
 if isvalid == None:
     print('Invalid Card or User')
+    return
 else:
     print('Valid card')
+
+time.sleep(2)
+print("SMILE!")
+time.sleep(1)
+#ts = time.time()
+#st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H-%M-%S')
+camera = PiCamera()
+camera.capture(str("/home/pi/captured/"+cardID+".jpg"))
+
+# Create an S3 client
+s3 = boto3.client('s3')
+
+filename = str("/home/pi/captured/"+cardID+".jpg")
+bucket_name = 'sovyrekognition2'
+
+# Uploads the given file using a managed uploader, which will split up large
+# files automatically and upload parts in parallel.
+s3.upload_file(filename,bucket_name, str(cardID+".jpg"))
+
+client = boto3.client('rekognition')
+response = client.compare_faces(
+    SourceImage={
+        'S3Object': {
+            'Bucket': 'sovyrekognition2',
+            'Name': str(cardID+".jpg"),
+            }
+        },
+    TargetImage={
+        'S3Object': {
+            'Bucket': 'sovyrekognition2',
+            'Name': str("employe_"+cardID+".jpg"),
+            }
+        },
+        SimilarityThreshold=80
+    )
+respo=json.dumps(response)
+load=json.loads(respo)
+print(load['FaceMatches'][0]['Similarity'])
+
+
+
+'''
+cardID = sys.argv[1]
+#print(cardID)
+
+
+
     
 # POROVNANIE CARD ID S DB
 # AK SPRAVNE isValid = True
