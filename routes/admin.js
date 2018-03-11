@@ -4,7 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose=require('mongoose');
 const dateFormat = require('dateformat');
-// const Access = require('../models/access-history');
+const Access = require('../models/access-history');
 const Employee = require('../models/employee');
 
 let Admin = require('../models/admin');
@@ -15,7 +15,7 @@ router.get('/',ensureAuthenticated, (req, res, next) => {
 //   console.log(now);
 //   Employee.update(
     
-//     { cardId: '123' },
+//     { cardId: '19221252164' },
 //     {
 //       $push: {
 //          Logs: {
@@ -27,6 +27,15 @@ router.get('/',ensureAuthenticated, (req, res, next) => {
 //  )
 
 //  .catch(err => console.log(err));
+
+// Access.insertMany({
+//   // _id: new mongoose.Types.ObjectId(),
+//   Access_time: new Date(),
+//   First_Name: 'Ondrej',
+//   Last_Name: 'Tomco',
+//   profilephoto: 'public\\uploads\\1520766619945OndrejPhoto.jpg'
+// });
+
     res.render('registerAdmin');
   });
 

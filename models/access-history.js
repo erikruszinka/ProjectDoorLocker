@@ -6,16 +6,19 @@ mongoose.connect('mongodb://Admin1:akademiasovy@ds229388.mlab.com:29388/recog');
 
 const accessHistorySchema = new Schema({
     Access_time: {
-        type:Date,
-        default: Date.now
+        type:Date
     },
 
-    CardId: {
-        type: String,ref: 'Employee'
+    First_Name: {
+        type: String
     },
 
-    Success: {
-        type:Boolean
+    Last_Name: {
+        type: String
+    },
+
+    profilephoto: {
+        type:String
     }
 
 });

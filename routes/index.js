@@ -3,28 +3,22 @@ const router = express.Router();
 const passport = require('passport');
 const dateFormat = require('dateformat');
 const LocalStrategy = require('passport-local').Strategy;
-// const AccessHistory = require("../models/access-history");
+const AccessHistory = require("../models/access-history");
 const mongoose = require('mongoose');
 const Employee = require('../models/employee');
 
 let User = require('../models/admin');
 
 // Home Page - Dashboard
-router.get('/', (req, res, next) => {
-  Employee.find()
-  // .sort({AccessHistory: -1})
-  // .limit(5)
+router.get('/',ensureAuthenticated, (req, res, next) => {
+  AccessHistory.find()
+  .sort({Access_time: -1})
+  .limit(30)
   .select()
   // .populate('Employee')
   .exec()
   .then(docs => {
-
-    for(i=0;i<docs.length;i++){
-      for(j=0;j<docs[i].Logs.length;j++){
-       docs[i].Logs[j] = dateFormat(docs[i].Logs[j], "dddd, mmmm dS, yyyy, h:MM:ss TT");
-      }
-    }
-    console.log();
+    
       res.render('index', {
         title: 'Form Validation',
         success: false,
@@ -42,6 +36,7 @@ router.get('/', (req, res, next) => {
   })
   
 });
+
 
 // Login Form
 router.get('/login', (req, res, next) => {

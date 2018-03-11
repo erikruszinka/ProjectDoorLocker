@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
+const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) => {
@@ -135,10 +136,17 @@ router.put('/:id',(req,res)=>{
 
 //Delete
 router.delete('/:id',(req,res)=>{
-    Employee.remove({_id:req.params.id})
-    .then(() =>{
-        res.redirect('/show');
-    });
+    Employee.findOne({_id:req.params.id})
+        .then((docs) => {
+            let imgPath = docs.profilephoto;
+            fs.unlinkSync(imgPath);
+
+            Employee.remove({_id:req.params.id})
+                .then(() =>{
+                res.redirect('/show');
+            });
+        })
+    
 });
 
 
