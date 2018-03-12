@@ -12,7 +12,6 @@ let Admin = require('../models/admin');
 // RegisterAdmin Form
 router.get('/',ensureAuthenticated, (req, res, next) => {
 //   var now = new Date();
-//   console.log(now);
 //   Employee.update(
     
 //     { cardId: '19221252164' },
@@ -33,7 +32,7 @@ router.get('/',ensureAuthenticated, (req, res, next) => {
 //   Access_time: new Date(),
 //   First_Name: 'Ondrej',
 //   Last_Name: 'Tomco',
-//   profilephoto: 'public\\uploads\\1520766619945OndrejPhoto.jpg'
+//   profilephoto: 'public\\uploads\\1520846965539OndrejPhoto.jpg'
 // });
 
     res.render('registerAdmin');

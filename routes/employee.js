@@ -110,12 +110,12 @@ router.put('/:id',(req,res)=>{
     .then(employee=>{
         console.log(req.params.id);
         console.log(req.body.fname);
+        console.log(req.body.city);
         //edit
         employee.First_Name=req.body.fname;
         employee.Last_Name=req.body.lname;
         employee.Gender=req.body.gender;
-        employee.Date_of_birth=req.bodyrs
-        .birth;
+        employee.Date_of_birth=req.body.birth;
         employee.City=req.body.city;
         employee.Address=req.body.address;
         employee.Code=req.body.zipcode;
