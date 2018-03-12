@@ -9,14 +9,15 @@ import json
 from pymongo import MongoClient
 from picamera import PiCamera
 
-#cardID = sys.argv[1]
-cardID = "19221252164"
+cardID = str(sys.argv[1])
+
+#cardID = "19221252164"
 
 print(cardID)
-"""
+
 client = MongoClient('mongodb://Admin1:akademiasovy@ds229388.mlab.com:29388/recog')
 db = client['recog']
-    db.employees.update(
+db.employees.update(
     {"cardId":cardID},
     {
         "$push": {
@@ -27,16 +28,35 @@ db = client['recog']
         }
     }
 )
-
-
 isvalid = db.employees.find_one({"cardId":cardID})
+print(isvalid)
+
+employee=isvalid
+name=(employee['First_Name'])
+last=(employee['Last_Name'])
+foto=(employee['profilephoto'])
+print(name)
+print(last)
+print(foto)
+
+
+
+db.acceshistories.insert_one(
+    {"Access_time": [datetime.datetime.now().strftime("%Y-%m-%d %H:%M")],
+     "First_Name": name,
+     "Last_Name": last,
+     "profilephoto": foto
+    }
+)
+     
 
 if isvalid == None:
     print('Invalid Card or User')
-    return
+    exit()
 else:
     print('Valid card')
-"""
+
+
 
 time.sleep(2)
 print("SMILE!")
@@ -59,7 +79,7 @@ s3.upload_file(filename, bucket_name, filename2)
 
 print("COMPARE")
 
-'''client = boto3.client('rekognition')
+client = boto3.client('rekognition')
 response = client.compare_faces(
     SourceImage={
         'S3Object': {
@@ -70,7 +90,7 @@ response = client.compare_faces(
     TargetImage={
         'S3Object': {
             'Bucket': 'sovyrekognition2',
-            'Name': 'employee_19221252164.jpg'
+            'Name': '19221252164.jpg'
             }
         },
         SimilarityThreshold=80
@@ -93,7 +113,7 @@ response = client.compare_faces(
     SimilarityThreshold=80
     )
 
-
+'''
 #print(response)
 respo=json.dumps(response)
 load=json.loads(respo)
@@ -101,11 +121,10 @@ print(load['FaceMatches'][0]['Similarity'])
 
 
 
-'''
-cardID = sys.argv[1]
+
+#cardID = sys.argv[1]
 #print(cardID)
 
 
 SimilarityThreshold=80
     
-'''
