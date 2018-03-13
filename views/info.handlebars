@@ -1,10 +1,11 @@
 
    
     <div class="col-sm-6 col-md-6">
+        <div class="employeeinfo">
         <div class="employeename">
-            <img src="../{{employee.profilephoto}}" width="120" height="120" class="img-responsive">
+            <img src="../{{employee.profilephoto}}" width="120" height="120" class="employee-info">
              
-        <h3>{{employee.First_Name}} {{employee.Last_Name}}</h3>
+        <h4>{{employee.First_Name}} {{employee.Last_Name}}</h4>
         </div>
         <p class="titles">Info</p>
         <span>Gender: {{employee.Gender}}</span>
@@ -17,21 +18,73 @@
             <span>Address: {{employee.Address}}</span>
             <span>ZIP code: {{employee.Code}}</span>
         </div>
-        
+        </div>
       </div>
       <div class="col-sm-5 col-md-5">
-          <table class="table table-bordered accesshistory">
-            <tr>
+        
+            <div class="access-history">
               <p class="titles">Access History</p>
-            </tr>
-            {{#each employee.Logs}}
-            <tr>
-            <td>
-                <p>
-                {{this}}
-                </p>
-            </td>
-            </tr>
-            {{/each}}
+            
+            <div id="tabulators">
+            <button class="tab tab-first active" id="defaultOpen" onclick="openMe('one')" >1</button>           
+            <button class="tab tab-second" onclick="openMe('two')" >2</button>
+            <button class="tab tab-third" onclick="openMe('three')" >3</button>
+         </div>
+        
+        <div id="one" class="content">
+
+               <p>
+                {{employee.Logs.[0]}}
+               </p>
+               <p>
+                {{employee.Logs.[1]}}
+               </p>
+               <p>
+                {{employee.Logs.[2]}}
+               </p>
+               <p>
+                {{employee.Logs.[3]}}
+               </p>
+               <p>
+                {{employee.Logs.[4]}}
+               </p>
+        </div>
+        <div id="two" class="content">
+            <p>
+                {{employee.Logs.[5]}}
+               </p>
+               <p>
+                {{employee.Logs.[6]}}
+               </p>
+               <p>
+                {{employee.Logs.[7]}}
+               </p>
+               <p>
+                {{employee.Logs.[8]}}
+               </p>
+               <p>
+                {{employee.Logs.[9]}}
+               </p>
+        </div>
+        <div id="three" class="content">
+               <p>
+                {{employee.Logs.[10]}}
+               </p>
+               <p>
+                {{employee.Logs.[11]}}
+               </p>
+               <p>
+                {{employee.Logs.[12]}}
+               </p>
+               <p>
+                {{employee.Logs.[13]}}
+               </p>
+               <p>
+                {{employee.Logs.[14]}}
+               </p>
+        </div>
+        </div>
+            
          </table>
+         </div>
       </div>

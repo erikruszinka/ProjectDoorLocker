@@ -1,16 +1,19 @@
 <div class="col-md-10 col-md-offset-1">
         {{#if user}}
+        <div>
+          <gcse:searchresults></gcse:searchresults>
+        </div>
          <div id="tabs">
             <button class="tab active" id="defaultOpen" onclick="openMe('first')" >Access point 1</button>           
             <button class="tab tab-two" onclick="openMe('second')" >Access point 2</button>
-            <button class="tab" onclick="openMe('third')" >Access point 3</button>
+            <button class="tab tab-three" onclick="openMe('third')" >Access point 3</button>
          </div>
         
         <div id="first" class="content">
              <ul class="people_list">
 
- 
-<table class="table ">
+
+<table class="table table-emp">
 <tr>
   <td>Photo</td>
   <td>First Name</td>
@@ -19,7 +22,7 @@
 </tr>
  {{#each data}}
 <tr>
-  <td><span><img src="../{{this.profilephoto}}" width="50" height="50" class="img-responsive"></span></td>
+  <td><span><img src="../{{this.profilephoto}}" class="img-responsive employee-img"></span></td>
 
   <td><span>{{this.First_Name}}</span></td>
  

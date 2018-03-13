@@ -54,6 +54,10 @@ hr{
     padding-top: 10px;
 }
 
+.tab-three, .tab-third{
+    float: right;
+}
+
 .social{
     
     color: #a0afbf;
@@ -138,9 +142,8 @@ th{
 
 button,label,input{
     font-family: Comfortaa;
+    
 }
-
-
 
 .manage:hover{
     background-color: #c9c9c9;
@@ -170,12 +173,18 @@ button,label,input{
 span{
     font-family: Roboto;
     display: block;
-    
     font-size: 20px;
 }
 
-.img-responsive{
-    border-radius: 100px;
+.employee-img{
+    border-radius: 50%;
+    width:50px;
+    height:50px; 
+
+}
+
+.employee-info{
+    border-radius: 50%;
 }
 
 .tab{
@@ -189,12 +198,6 @@ span{
 }
 .tab:focus{
     outline: none;
-}
-.tabs{
-    display: flex;
-    background-color: #878787;
-    
-    
 }
 .tab:hover{
     background-color: #878787;
@@ -218,7 +221,19 @@ span{
 }
 
 .active{
-    background: #919191;
+    background: #919191; 
+}
+
+.tab-two{
+    margin-left: 1.5%;
+}
+
+.tab-second{
+    margin-left: 4px;
+}
+
+.employeeinfo{
+    margin-left:50px;
 }
 
 .socialpg i {
@@ -234,7 +249,8 @@ span{
 
 
 
-@media only screen and (max-width: 850px) {
+
+@media only screen and (max-width: 768px) {
     .top_links{
         display: none;
         margin-top: 50px;
@@ -245,6 +261,23 @@ span{
         float: right;
         background-color: #969696;
         
+    }
+
+    .tab-two{
+        margin-left:0px;
+    }
+
+    
+    .table-emp, span{
+        font-size: 3vw;
+    }
+
+    #access_time{
+        display: block;
+    }
+
+    .table{
+        overflow: hidden;
     }
 
     .drop-links:hover{
