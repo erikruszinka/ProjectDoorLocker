@@ -8,6 +8,18 @@ import boto3
 import json
 from pymongo import MongoClient
 from picamera import PiCamera
+import RPi.GPIO as GPIO
+
+pin = 20
+pin2 = 26
+pinRed = 19
+pinGreen = 16
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(pin,GPIO.OUT)
+GPIO.setup(pinRed,GPIO.OUT)
+GPIO.setup(pinGreen,GPIO.OUT)
+GPIO.output(pin,GPIO.HIGH)
 
 cardID = str(sys.argv[1])
 
@@ -31,17 +43,18 @@ if isvalid == None:
          "success": "Invalid card"
         }
     )
-    
+    GPIO.output(pin,GPIO.LOW)
     exit()
 else:
     print('Valid card')
-
+GPIO.output(pin,GPIO.LOW)
 time.sleep(2)
+GPIO.output(pin,GPIO.HIGH)
 print("SMILE!")
 time.sleep(1)
 camera = PiCamera()
 camera.capture("/home/pi/captured/"+cardID+".jpg")
-
+GPIO.output(pin,GPIO.LOW)
 # Create an S3 client
 s3 = boto3.client('s3')
 
@@ -83,7 +96,7 @@ foto=(employee['profilephoto'])
 card=(employee['cardId'])
 print(name)
 print(last)
-print(foto)
+#print(foto)
 
 
     
@@ -101,7 +114,8 @@ if load['FaceMatches'] == []:
     exit()
 
 if load['FaceMatches'][0]['Similarity'] > 80:
-    
+    GPIO.output(pinRed,GPIO.LOW)
+    GPIO.output(pinGreen,GPIO.HIGH)
     similarity = load['FaceMatches'][0]['Similarity']
     print(similarity)
     
@@ -122,9 +136,12 @@ if load['FaceMatches'][0]['Similarity'] > 80:
          "First_Name": name,
          "Last_Name": last,
          "profilephoto": foto,
-         "success": 'Good'
+         "success": 'Good ('+str(similarity)+'%)'
         }
     )
+    time.sleep(2.5)
+    GPIO.output(pinGreen,GPIO.LOW)
+    GPIO.output(pinRed,GPIO.HIGH)
     
     
 else:
