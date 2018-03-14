@@ -19,14 +19,19 @@ print(isvalid)
 #cardID = "19221252164"
 
 print(cardID)
-
-
-
-
      
 
 if isvalid == None:
     print('Invalid Card or User')
+    db.acceshistories.insert_one(
+        {"Access_time": [datetime.datetime.now().strftime("%Y-%m-%d %H:%M")],
+         "First_Name": 'Unknown',
+         "Last_Name": 'Unknown',
+         "profilephoto": 'public/uploads/default.png',
+         "success": "Invalid card"
+        }
+    )
+    
     exit()
 else:
     print('Valid card')
@@ -64,19 +69,41 @@ response = client.compare_faces(
             'Name': cardID+'.jpg'
             }
         },
-        SimilarityThreshold=80
+        #SimilarityThreshold=0
     )
 
 #print(response)
 respo=json.dumps(response)
 load=json.loads(respo)
-if load['FaceMatches'][0]['Similarity'] == None:
-    exit()
-else:
-    similarity = load['FaceMatches'][0]['Similarity']
-    print(similarity)
 
-if similarity > 80:
+employee=isvalid
+name=(employee['First_Name'])
+last=(employee['Last_Name'])
+foto=(employee['profilephoto'])
+card=(employee['cardId'])
+print(name)
+print(last)
+print(foto)
+
+if response:
+    pprint.pprint(response)
+else:
+    print('nope')
+    
+if load['FaceMatches'] == []:
+    print('face not recognized')
+    db.acceshistories.insert_one(
+        {"Access_time": [datetime.datetime.now().strftime("%Y-%m-%d %H:%M")],
+         "First_Name": card,
+         "Last_Name": 'Unknown',
+         "profilephoto": 'public/uploads/default.png',
+         "success": "Face not recognized"
+        }
+    )
+    
+    exit()
+
+if load['FaceMatches'][0]['Similarity'] > 80:
     db.employees.update(
     {"cardId":cardID},
     {
@@ -87,22 +114,30 @@ if similarity > 80:
                 }
             }
         }
+   
     )
-    employee=isvalid
-    name=(employee['First_Name'])
-    last=(employee['Last_Name'])
-    foto=(employee['profilephoto'])
-    print(name)
-    print(last)
-    print(foto)
-
     db.acceshistories.insert_one(
         {"Access_time": [datetime.datetime.now().strftime("%Y-%m-%d %H:%M")],
          "First_Name": name,
          "Last_Name": last,
-         "profilephoto": foto
+         "profilephoto": foto,
+         "success": 'Good'
         }
     )
+    
+    
+else:
+    print('face not recognized')
+    db.acceshistories.insert_one(
+        {"Access_time": [datetime.datetime.now().strftime("%Y-%m-%d %H:%M")],
+         "First_Name": card,
+         "Last_Name": 'Unknown',
+         "profilephoto": 'public/uploads/default.png',
+         "success": "Face not recognized"
+        }
+    )
+    #similarity = load['FaceMatches'][0]['Similarity']
+    #print(similarity)
 
 
 '''
