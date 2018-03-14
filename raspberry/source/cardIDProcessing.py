@@ -69,7 +69,7 @@ response = client.compare_faces(
             'Name': cardID+'.jpg'
             }
         },
-        #SimilarityThreshold=0
+        SimilarityThreshold=0
     )
 
 #print(response)
@@ -85,10 +85,7 @@ print(name)
 print(last)
 print(foto)
 
-if response:
-    pprint.pprint(response)
-else:
-    print('nope')
+
     
 if load['FaceMatches'] == []:
     print('face not recognized')
@@ -104,6 +101,10 @@ if load['FaceMatches'] == []:
     exit()
 
 if load['FaceMatches'][0]['Similarity'] > 80:
+    
+    similarity = load['FaceMatches'][0]['Similarity']
+    print(similarity)
+    
     db.employees.update(
     {"cardId":cardID},
     {
@@ -136,8 +137,7 @@ else:
          "success": "Face not recognized"
         }
     )
-    #similarity = load['FaceMatches'][0]['Similarity']
-    #print(similarity)
+    
 
 
 '''
