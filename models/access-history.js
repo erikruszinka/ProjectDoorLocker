@@ -19,6 +19,9 @@ const accessHistorySchema = new Schema({
 
     profilephoto: {
         type:String
+    },
+    success: {
+        type: String
     }
 
 });
