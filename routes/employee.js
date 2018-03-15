@@ -64,12 +64,13 @@ if(req.file.profilephoto){
 req.checkBody('fname','First name field is required').notEmpty();
 req.checkBody('lname','Last name field is required').notEmpty();
 req.checkBody('gender','Gender field is required').notEmpty();
-req.checkBody('dob','Date of birth field is required');
+req.checkBody('birth','Date of birth field is required').notEmpty();
 req.checkBody('city','City field is required').notEmpty();
 req.checkBody('address','Address field is required').notEmpty();
-req.checkBody('code','ZIP code field is required');
-req.checkBody('mail','Email field is required');
-req.checkBody('phonenumber','Phone number field is required');
+req.checkBody('zipcode','ZIP code field is required').notEmpty();
+req.checkBody('email','Email field is required').isEmail();
+req.checkBody('phoneNumber','Phone number field is required').notEmpty();
+req.checkBody('cardId','Card ID is required').notEmpty();
 
 let errors=req.validationErrors();
 
