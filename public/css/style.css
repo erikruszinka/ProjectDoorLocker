@@ -9,13 +9,28 @@ h3{
     color: rgb(241, 241, 241);
 }
 
-a{
+.menu_buttons{
     font-family: Comfortaa;
     font-size: 20px;
     color: #f2f2f2;
     padding-right: 10px;
     transition: 0.2s
     
+}
+
+.submitbtn{
+    background-color: #c4c4c4;
+}
+
+a{
+    color: #fff;
+    font-size: 20px;
+    font-family: Comfortaa;
+}
+
+.dropdown_buttons:hover{
+    background-color: rgb(163, 167, 170);
+
 }
 
 .welcome:hover{
@@ -52,6 +67,11 @@ hr{
 .soc_buttons{
     float: right;
     padding-top: 10px;
+    padding-right: 20px; 
+}
+
+.soc_buttons a{
+    padding-right: 5px;
 }
 
 .tab-three, .tab-third{
@@ -89,6 +109,7 @@ hr{
     margin-left: 8px;
     border: none;
     float: left;
+    
 }
 
 p{
@@ -116,16 +137,18 @@ p{
     padding-right: 5px;
 }
 
-.name{
-    
+th{
+    font-family: Montserrat;
     font-size: 20px;
-    text-align: justify;
+    
 }
 
-th{
-    font-family: Comfortaa;
-    font-size: 20px;
+td{
+    font-family: Montserrat;
+    font-size: 18px;
+    
 }
+
 
 .manage{
     font-size: 16px;
@@ -171,9 +194,9 @@ button,label,input{
 }
 
 span{
-    font-family: Roboto;
+    font-family: Libre Franklin;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .employee-img{
@@ -214,6 +237,12 @@ span{
     background-color: #C1CEDF;
 }
 
+.dropicon{
+    color: #ECEFF4;
+    padding-right: 5px;
+    font-size: 22px;
+}
+
 .titles{
     color: darkgray;
     font-size: 16px;
@@ -228,12 +257,14 @@ span{
     margin-left: 1.5%;
 }
 
-.tab-second{
-    margin-left: 4px;
-}
 
 .employeeinfo{
     margin-left:50px;
+    margin-bottom: 10px;
+}
+
+.editdiv, .registerForm{
+    margin-bottom: 30px;
 }
 
 .socialpg i {
@@ -244,6 +275,14 @@ span{
     font-size: 40px;
     
     
+}
+
+.info{
+    font-size: 20px;
+}
+
+.fa-bars{
+    color: #C1CEDF;
 }
 
 
@@ -257,10 +296,19 @@ span{
         padding: 13px;
         position: fixed;
         vertical-align: middle;
-        width: 150px;
+        width: 230px;
         float: right;
-        background-color: #969696;
+        background-color: rgb(114, 114, 114);
         
+    }
+
+    .employeeinfo{
+        margin-left:5px;
+        margin-bottom: 10px;
+    }
+
+    .accessinfo{
+        margin: -20px;
     }
 
     .tab-two{
@@ -268,7 +316,7 @@ span{
     }
 
     
-    .table-emp, span{
+    .table-emp, {
         font-size: 3vw;
     }
 
@@ -281,7 +329,7 @@ span{
     }
 
     .drop-links:hover{
-         color: rgba(194, 200, 207, 0.829);
+         color: rgba(0, 0, 0, 0.829);
          text-decoration: none;
     }
 
@@ -323,11 +371,6 @@ span{
     padding-right: 40px;
     padding-left: 40px;
   }
-
-  .registerForm{
-    width:50%;
-    float: left;
-}
   
 }
 

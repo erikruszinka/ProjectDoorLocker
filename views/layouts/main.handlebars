@@ -49,13 +49,13 @@
                     
             {{#if user}}
       
-              <a href="/" class="drop-links hidden-md hidden-lg hidden-sm">Home</a>     
-              <a href="/show" class="drop-links hidden-md hidden-lg hidden-sm">Show Employees</a>          
-              <a href="/registerEmployee" class="drop-links hidden-md hidden-lg hidden-sm">Register Employee</a>
-              <a href="/registerAdmin" class="drop-links hidden-md hidden-lg hidden-sm">Register Admin</a>
-              <a href="/logout" class=" drop-links hidden-md hidden-lg hidden-sm">Logout</a>
+              <a href="/" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-home"></i>Home</a>    
+              <a href="/show" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-address-book"></i>Show Employees</a>          
+              <a href="/registerEmployee" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-user-plus"></i>Register Employee</a>
+              <a href="/registerAdmin" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-unlock-alt"></i>Register Admin</a>
+              <a href="/logout" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-sign-out-alt"></i>Logout</a>
             {{else}}
-              <a href="/login" class="drop-links hidden-md hidden-lg hidden-sm">Login</a>
+              <a href="/login" class="dropdown_buttons btn drop-links hidden-md hidden-lg hidden-sm"><i class="fas dropicon fa-sign-in-alt"></i>Login</a>
             {{/if}} 
                                           
                                                 
@@ -83,17 +83,17 @@
             {{#if user}}
              
               
-               <li> <a class="welcome" href="">Hello, {{user.username}}</a></h4></li><hr>
+               <li> <a class="welcome menu_buttons" href="">Hello, {{user.username}}</a></h4></li><hr>
               
             
             
-              <li><a class="welcome" onclick="openMe('first')" href="/"><i class="fas fa-home"></i> Home</a></li><hr>  
-              <li><a class="welcome" onclick="openMe('second')" href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>  <hr>          
-              <li><a class="welcome" onclick="openMe('third')" href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li> <hr>
-              <li><a class="welcome" onclick="openMe('fourth')" href="/registerAdmin"><i class="fas fa-unlock-alt"></i> Register Admin</a></li> <hr>
-              <li><a class="welcome" onclick="openMe('fifth')" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li><hr>
+              <li><a class="welcome menu_buttons" href="/"><i class="fas fa-home"></i> Home</a></li><hr>  
+              <li><a class="welcome menu_buttons" href="/show"><i class="fas fa-address-book"></i> Show Employees</a></li>  <hr>          
+              <li><a class="welcome menu_buttons" href="/registerEmployee"><i class="fas fa-user-plus"></i> Register Employee</a></li> <hr>
+              <li><a class="welcome menu_buttons" href="/registerAdmin"><i class="fas fa-unlock-alt"></i> Register Admin</a></li> <hr>
+              <li><a class="welcome menu_buttons" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li><hr>
             {{else}}
-              <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>              
+              <li><a class="welcome menu_buttons" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>              
             {{/if}}
           </ul>
                     

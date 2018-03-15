@@ -5,18 +5,18 @@
         <div class="employeename">
             <img src="../{{employee.profilephoto}}" width="120" height="120" class="employee-info">
              
-        <h4>{{employee.First_Name}} {{employee.Last_Name}}</h4>
+        <h2>{{employee.First_Name}} {{employee.Last_Name}}</h2>
         </div>
         <p class="titles">Info</p>
-        <span>Gender: {{employee.Gender}}</span>
-        <span>Date of birth: {{employee.Date_of_birth}}</span>
-        <span>Email: {{employee.email}}</span>
-        <span> {{employee.phonenumber}}</span>
+        <span class="info">Gender: {{employee.Gender}}</span>
+        <span class="info">Date of birth: {{employee.Date_of_birth}}</span>
+        <span class="info"> Email: {{employee.email}}</span>
+        <span class="info"> {{employee.phonenumber}}</span>
         <div>
             <p class="titles">Adress</p>
-            <span>City: {{employee.City}}</span>
-            <span>Address: {{employee.Address}}</span>
-            <span>ZIP code: {{employee.Code}}</span>
+            <span class="info">City: {{employee.City}}</span>
+            <span class="info">Address: {{employee.Address}}</span>
+            <span class="info">ZIP code: {{employee.Code}}</span>
         </div>
         </div>
       </div>
@@ -26,9 +26,9 @@
               <p class="titles">Access History</p>
             
             <div id="tabulators">
-            <button class="tab tab-first active" id="defaultOpen" onclick="openMe('one')" >1</button>           
-            <button class="tab tab-second" onclick="openMe('two')" >2</button>
-            <button class="tab tab-third" onclick="openMe('three')" >3</button>
+            <button class="tab active" id="defaultOpen" onclick="openMe('one')" >1</button>           
+            <button class="tab tab-two" onclick="openMe('two')" >2</button>
+            <button class="tab tab-three" onclick="openMe('three')" >3</button>
          </div>
         
         <div id="one" class="content">
@@ -84,7 +84,5 @@
                </p>
         </div>
         </div>
-            
-         </table>
-         </div>
+        
       </div>
