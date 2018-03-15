@@ -11,7 +11,7 @@ const flash = require('connect-flash');
 const session = require('express-session'); 
 const passport = require('passport'); 
 const LocalStrategy = require('passport-local').strategy; 
-
+const dateFormat = require('dateformat');
 
 /*
 const multer=require('multer');
@@ -28,11 +28,22 @@ const edit = require('./routes/edit');
 //Application init
 const app=express();
 
+var hbs= exphbs.create({
+  defaultLayout: 'main',
+  // Specify helpers which are only registered on this instance. 
+  helpers: {
+      formatDate: function (date) { return dateFormat(date,"dd.mm.yyyy, HH:MM"); },
+  }
+});
+
 //view engine
-app.engine('handlebars',exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
+// app.engine('handlebars',exphbs());
+
 app.set('view engine','handlebars');
 
 app.use('/public', express.static('public'))
+
 
 //app.use(upload.single('profilephoto'))
 
@@ -81,6 +92,7 @@ app.use(expressValidator({
       };
     }
 }));
+
 
 app.use('/', index);
 app.use('/registerAdmin', admin);

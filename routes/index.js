@@ -6,24 +6,25 @@ const LocalStrategy = require('passport-local').Strategy;
 const AccessHistory = require("../models/access-history");
 const mongoose = require('mongoose');
 const Employee = require('../models/employee');
+const moment = require('moment');
 
 let User = require('../models/admin');
+
 
 // Home Page - Dashboard
 router.get('/',ensureAuthenticated, (req, res, next) => {
   AccessHistory.find()
   .sort({Access_time: -1})
-  .limit(30)
+  //.limit(30)
   .select()
   // .populate('Employee')
   .exec()
   .then(docs => {
-    
       res.render('index', {
         title: 'Form Validation',
         success: false,
         errors:req.session.errors,
-        data:docs
+        data:docs,
       });
 
     })
@@ -36,7 +37,6 @@ router.get('/',ensureAuthenticated, (req, res, next) => {
   })
   
 });
-
 
 // Login Form
 router.get('/login', (req, res, next) => {
